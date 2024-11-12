@@ -24,7 +24,12 @@ public class RedBlackTree {
     }
 
     // Insert a new product into the tree
-    public void insert(Product product) {
+    public void insert(Product product) throws IllegalArgumentException {
+        // Check if productId already exists
+        if (search(product.getProductId()) != null) {
+            throw new IllegalArgumentException("Error: Product with ID " + product.getProductId() + " already exists.");
+        }
+
         Node newNode = new Node(product);
         Node y = null;
         Node x = root;
