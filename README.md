@@ -183,5 +183,5 @@ Exiting...
 
 Process finished with exit code 0
 
-#runtime analysis
+# runtime analysis
 after loading the CSV it is O(log k), where k is the number of products in the tree.
