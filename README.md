@@ -116,21 +116,27 @@ Products loaded successfully!
 1. Insert a new product
 2. Search for a product
 3. Exit
+
 Choose an option: 2
+
 Enter product ID to search: ac8a68131c780aaa9816d012c1b9aa33
 Product ID: ac8a68131c780aaa9816d012c1b9aa33, Name: Cate and Levi 12 Handmade Princess Hand Puppet (Premium Reclaimed Wool), Colors Will Vary, Category: Toys & Games | Puppets & Puppet Theaters | Hand Puppets, Price: $21.19
 
 1. Insert a new product
 2. Search for a product
 3. Exit
+
 Choose an option: 2
+
 Enter product ID to search: 41ca8a61ae5b61244de8b8fecd9eaeb7
 Product ID: 41ca8a61ae5b61244de8b8fecd9eaeb7, Name: WizKids WWE Heroclix: Macho Man Randy Savage Expansion Pack, Category: Toys & Games | Toy Figures & Playsets | Action Figures, Price: $18.99
 
 1. Insert a new product
 2. Search for a product
 3. Exit
+
 Choose an option: 2
+
 Enter product ID to search: 9080830693aff4fe1019c51325a6ea5a
 Product ID: 9080830693aff4fe1019c51325a6ea5a, Name: Plum Azur Lane: Ijn Yamashiro 1: 7 Scale PVC Figure, Multicolor, Category: Toys & Games | Collectible Toys | Statues, Bobbleheads & Busts | Statues, Price: $115.00
 
@@ -139,7 +145,9 @@ Product ID: 9080830693aff4fe1019c51325a6ea5a, Name: Plum Azur Lane: Ijn Yamashir
 1. Insert a new product
 2. Search for a product
 3. Exit
+   
 Choose an option: 1
+
 Enter Product ID: 12345
 Enter Product Name: yo mama
 Enter Product Category: toys
@@ -149,7 +157,9 @@ Product inserted successfully!
 1. Insert a new product
 2. Search for a product
 3. Exit
+   
 Choose an option: 1
+
 Enter Product ID: 12345
 Enter Product Name: yo mama
 Enter Product Category: toys
@@ -159,6 +169,7 @@ Error: Product with ID 12345 already exists.
 1. Insert a new product
 2. Search for a product
 3. Exit
+   
 Choose an option: 2
 Enter product ID to search: 12345
 Product ID: 12345, Name: yo mama, Category: toys, Price: $2.00
@@ -166,4 +177,8 @@ Product ID: 12345, Name: yo mama, Category: toys, Price: $2.00
 1. Insert a new product
 2. Search for a product
 3. Exit
-Choose an option: 
+Choose an option: 3
+Exiting...
+
+Process finished with exit code 0
+
