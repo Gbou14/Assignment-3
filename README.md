@@ -1,3 +1,4 @@
+Gavin Bounous 48805515 Tamara Azzam 48830410
 # Assignment-3 results top here are skipped malformed rows (scroll for inputs)
 C:\Users\gboun\.jdks\openjdk-22.0.2\bin\java.exe "-javaagent:C:\Users\gboun\OneDrive\Desktop\code\IntelliJ IDEA 2024.2.0.2\lib\idea_rt.jar=52138:C:\Users\gboun\OneDrive\Desktop\code\IntelliJ IDEA 2024.2.0.2\bin" -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 -classpath "C:\Java code\assignment3\out\production\assignment3" ProductManagement
 Skipping malformed row: [97234d1266893b950ca56a7438d1f50b, MightySkins Skin Compatible with Razor A Kick Scooter - Geo Tile | Protective, Durable, and Unique Vinyl Decal wrap Cover | Easy to Apply, Remove, and Change Styles | Made in The USA, Sports & Outdoors | Outdoor Recreation | Skates, Skateboards & Scooters | Scooters & Equipment | Accessories]
