@@ -8,23 +8,21 @@ public class RedBlackTree {
 
         public Node(Product product) {
             this.product = product;
-            this.color = Color.RED; // New nodes are always red
+            this.color = Color.RED; 
             this.left = this.right = this.parent = null;
         }
     }
 
     private Node root;
-    private Node TNULL; // Sentinel node representing leaves
+    private Node TNULL; 
 
     public RedBlackTree() {
-        TNULL = new Node(null); // Sentinel node for leaves
+        TNULL = new Node(null); 
         TNULL.color = Color.BLACK;
         root = TNULL;
     }
 
-    // Insert a new product into the tree
     public void insert(Product product) throws IllegalArgumentException {
-        // Check if productId already exists
         if (search(product.getProductId()) != null) {
             throw new IllegalArgumentException("Error: Product with ID " + product.getProductId() + " already exists.");
         }
@@ -58,12 +56,11 @@ public class RedBlackTree {
         fixInsert(newNode);
     }
 
-    // Fix the tree after insertion to maintain Red-Black properties
     private void fixInsert(Node k) {
-        while (k.parent != null && k.parent.color == Color.RED) { // Check if parent exists and is red
-            if (k.parent.parent != null && k.parent == k.parent.parent.left) { // Check grandparent exists
-                Node u = k.parent.parent.right; // Uncle node
-                if (u != null && u.color == Color.RED) { // Uncle exists and is red
+        while (k.parent != null && k.parent.color == Color.RED) { 
+            if (k.parent.parent != null && k.parent == k.parent.parent.left) { 
+                Node u = k.parent.parent.right; 
+                if (u != null && u.color == Color.RED) { 
                     u.color = Color.BLACK;
                     k.parent.color = Color.BLACK;
                     k.parent.parent.color = Color.RED;
@@ -77,9 +74,9 @@ public class RedBlackTree {
                     if (k.parent.parent != null) k.parent.parent.color = Color.RED;
                     rightRotate(k.parent.parent);
                 }
-            } else if (k.parent.parent != null) { // Symmetric case: k.parent == k.parent.parent.right
-                Node u = k.parent.parent.left; // Uncle node
-                if (u != null && u.color == Color.RED) { // Uncle exists and is red
+            } else if (k.parent.parent != null) { 
+                Node u = k.parent.parent.left; 
+                if (u != null && u.color == Color.RED) { 
                     u.color = Color.BLACK;
                     k.parent.color = Color.BLACK;
                     k.parent.parent.color = Color.RED;
@@ -96,7 +93,7 @@ public class RedBlackTree {
             }
             if (k == root) break;
         }
-        root.color = Color.BLACK; // Ensure root is always black
+        root.color = Color.BLACK; 
     }
 
     // Left rotate operation
@@ -149,6 +146,6 @@ public class RedBlackTree {
                 current = current.right;
             }
         }
-        return null; // Product not found
+        return null; 
     }
 }
