@@ -2,9 +2,9 @@ public class Product {
     private String productId;
     private String name;
     private String category;
-    private double price;
+    private String price; // Change type to String to accommodate "Invalid Price"
 
-    public Product(String productId, String name, String category, double price) {
+    public Product(String productId, String name, String category, String price) {
         this.productId = productId;
         this.name = name;
         this.category = category;
@@ -24,7 +24,7 @@ public class Product {
         return category;
     }
 
-    public double getPrice() {
+    public String getPrice() {
         return price;
     }
 
