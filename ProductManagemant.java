@@ -14,17 +14,15 @@ public class ProductManagement {
             }
 
             String line;
-            boolean isFirstLine = true; // Flag to skip the header
+            boolean isFirstLine = true; 
             while ((line = br.readLine()) != null) {
                 if (isFirstLine) {
-                    isFirstLine = false; // Skip the first line (header)
+                    isFirstLine = false; 
                     continue;
                 }
 
-                // Split by commas, but account for quoted fields
                 String[] values = parseCSVLine(line);
 
-                // Ensure the row has at least 4 fields
                 if (values.length < 4) {
                     System.err.println("Skipping malformed row: " + Arrays.toString(values));
                     continue;
@@ -34,19 +32,16 @@ public class ProductManagement {
                 String name = values[1].trim();
                 String category = values[2].trim();
                 String price;
-
-                // New parser logic to handle invalid price values and "$" symbol
+                
                 try {
-                    String priceString = values[3].trim(); // Extract the price field
+                    String priceString = values[3].trim(); 
 
-                    // Remove $ symbol if present
                     if (priceString.startsWith("$")) {
-                        priceString = priceString.substring(1); // Strip the $ symbol
+                        priceString = priceString.substring(1); 
                     }
 
-                    priceString = priceString.replace(",", ""); // Remove commas for thousand separators
+                    priceString = priceString.replace(",", ""); 
 
-                    // Directly use the price string without checking for invalid format
                     Product product = new Product(productId, name, category, "$" + priceString);
                     tree.insert(product);
 
@@ -60,14 +55,13 @@ public class ProductManagement {
 
         } catch (FileNotFoundException e) {
             System.err.println("Error: The resource file '" + fileName + "' was not found.");
-            return; // Exit the program
+            return; 
         } catch (IOException e) {
             System.err.println("Error reading the resource file: " + fileName);
             e.printStackTrace();
-            return; // Exit the program
+            return; 
         }
 
-        // Main interaction loop
         Scanner scanner = new Scanner(System.in);
         while (true) {
             System.out.println("\n1. Insert a new product");
@@ -75,10 +69,9 @@ public class ProductManagement {
             System.out.println("3. Exit");
             System.out.print("Choose an option: ");
             int choice = scanner.nextInt();
-            scanner.nextLine(); // Consume newline left by nextInt()
+            scanner.nextLine(); 
 
             if (choice == 1) {
-                // Insert a new product
                 System.out.print("Enter Product ID: ");
                 String productId = scanner.nextLine();
                 System.out.print("Enter Product Name: ");
@@ -88,14 +81,13 @@ public class ProductManagement {
                 System.out.print("Enter Product Price (e.g., $49.00): ");
                 String price = scanner.nextLine();
 
-                // Create a new Product
                 Product newProduct = new Product(productId, name, category, price);
 
                 try {
-                    tree.insert(newProduct); // Insert into Red-Black Tree
+                    tree.insert(newProduct); 
                     System.out.println("Product inserted successfully!");
                 } catch (IllegalArgumentException e) {
-                    System.err.println(e.getMessage()); // Notify about duplicate insertions
+                    System.err.println(e.getMessage()); 
                 }
             } else if (choice == 2) {
                 // Search for a product
@@ -108,7 +100,7 @@ public class ProductManagement {
                     System.out.println("Product not found.");
                 }
             } else if (choice == 3) {
-                // Exit the program
+              
                 System.out.println("Exiting...");
                 break;
             } else {
@@ -118,8 +110,6 @@ public class ProductManagement {
 
         scanner.close();
     }
-
-    // A utility function to handle quoted CSV fields
     public static String[] parseCSVLine(String line) {
         List<String> result = new ArrayList<>();
         boolean inQuotes = false;
@@ -127,16 +117,15 @@ public class ProductManagement {
 
         for (char c : line.toCharArray()) {
             if (c == '"' && (currentField.length() == 0 || currentField.charAt(currentField.length() - 1) != '\\')) {
-                inQuotes = !inQuotes; // Toggle inQuotes state
+                inQuotes = !inQuotes; 
             } else if (c == ',' && !inQuotes) {
                 result.add(currentField.toString().trim());
-                currentField = new StringBuilder(); // Reset for next field
+                currentField = new StringBuilder(); 
             } else {
                 currentField.append(c);
             }
         }
 
-        // Add the last field
         if (currentField.length() > 0) {
             result.add(currentField.toString().trim());
         }
