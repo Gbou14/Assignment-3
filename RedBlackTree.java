@@ -1,4 +1,3 @@
-// Red-Black Tree Implementation
 public class RedBlackTree {
     private enum Color {RED, BLACK}
 
@@ -61,11 +60,10 @@ public class RedBlackTree {
 
     // Fix the tree after insertion to maintain Red-Black properties
     private void fixInsert(Node k) {
-        Node u;
-        while (k.parent.color == Color.RED) {
-            if (k.parent == k.parent.parent.left) {
-                u = k.parent.parent.right;
-                if (u.color == Color.RED) {
+        while (k.parent != null && k.parent.color == Color.RED) { // Check if parent exists and is red
+            if (k.parent.parent != null && k.parent == k.parent.parent.left) { // Check grandparent exists
+                Node u = k.parent.parent.right; // Uncle node
+                if (u != null && u.color == Color.RED) { // Uncle exists and is red
                     u.color = Color.BLACK;
                     k.parent.color = Color.BLACK;
                     k.parent.parent.color = Color.RED;
@@ -75,13 +73,13 @@ public class RedBlackTree {
                         k = k.parent;
                         leftRotate(k);
                     }
-                    k.parent.color = Color.BLACK;
-                    k.parent.parent.color = Color.RED;
+                    if (k.parent != null) k.parent.color = Color.BLACK;
+                    if (k.parent.parent != null) k.parent.parent.color = Color.RED;
                     rightRotate(k.parent.parent);
                 }
-            } else {
-                u = k.parent.parent.left;
-                if (u.color == Color.RED) {
+            } else if (k.parent.parent != null) { // Symmetric case: k.parent == k.parent.parent.right
+                Node u = k.parent.parent.left; // Uncle node
+                if (u != null && u.color == Color.RED) { // Uncle exists and is red
                     u.color = Color.BLACK;
                     k.parent.color = Color.BLACK;
                     k.parent.parent.color = Color.RED;
@@ -91,16 +89,14 @@ public class RedBlackTree {
                         k = k.parent;
                         rightRotate(k);
                     }
-                    k.parent.color = Color.BLACK;
-                    k.parent.parent.color = Color.RED;
+                    if (k.parent != null) k.parent.color = Color.BLACK;
+                    if (k.parent.parent != null) k.parent.parent.color = Color.RED;
                     leftRotate(k.parent.parent);
                 }
             }
-            if (k == root) {
-                break;
-            }
+            if (k == root) break;
         }
-        root.color = Color.BLACK;
+        root.color = Color.BLACK; // Ensure root is always black
     }
 
     // Left rotate operation
